@@ -1,3 +1,12 @@
+;; jpl-mode.el - Mode for editing Prolifics Panther JPL
+;;
+;; Author: Nilesh Kapadia - http://www.nileshk.com
+;; Version: 0.1
+;;
+;; This mode is derived from c-mode and at present only provides
+;; syntax highlighting for JPL code.
+;;
+
 (require 'font-lock)
 
 (defvar jpl-types
@@ -58,22 +67,3 @@
   )
 
 (provide 'jpl-mode)
-
-;; For testing
-(defun reload-jpl-mode ()
-	(interactive)
-    ;; (setq jpl-keywords nil)
-    ;; (setq jpl-constants nil)
-    ;; (setq jpl-database-commands nil)
-    ;; (setq jpl-sql nil)
-    ;; (setq jpl-sql-regexp nil)
-    ;; (setq jpl-keywords-regexp nil)
-    ;; (setq jpl-constants-regexp nil)
-    ;; (setq jpl-database-commands-regexp nil)
-	(with-current-buffer (get-buffer "jpl-mode.el")
-		(eval-buffer))
-	(with-current-buffer (get-buffer "i_eqgrp.jpl")
-		(jpl-mode)
-		(message "jpl-mode reloaded.")))
-
-(define-key global-map [f6] 'reload-jpl-mode)
