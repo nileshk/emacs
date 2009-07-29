@@ -235,6 +235,7 @@
 (transient-mark-mode t)
 (setq delete-by-moving-to-trash t)
 (column-number-mode t)
+(setq line-move-visual nil)
 ; Don't prompt when closing a buffer that emacsclient is waiting on
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
