@@ -66,6 +66,10 @@
 (when cygwin-p
   (message "Cygwin detected"))
 
+;; Don't show menu bar in text mode
+(when (not window-system)
+  (menu-bar-mode 0))
+
 ;; Load csharp-mode for C#
 (autoload 'csharp-mode "csharp-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
@@ -132,6 +136,8 @@
 (add-to-list 'auto-mode-alist '("\.bdy$" . plsql-mode))
 (add-to-list 'auto-mode-alist '("\.sql$" . plsql-mode))
 
+;;;; Python
+
 ;;; PyMacs
 (autoload 'pymacs-apply "pymacs")
 (autoload 'pymacs-call "pymacs")
@@ -158,6 +164,11 @@
      
      (add-to-list 'flymake-allowed-file-name-masks
                   '("\\.py\\'" flymake-pylint-init))))
+
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (flymake-mode t)
+             ))
 
 ;;; Scala
 (add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
@@ -271,8 +282,9 @@
    ido-use-url-at-point nil         ; don't use url at point
    ido-enable-flex-matching t       ; be flexible
    ido-max-prospects 30             ; how many displayed in minibuffer
-   ido-confirm-unique-completion t) ; wait for RET, even with unique completion  
-  )
+   ido-confirm-unique-completion t  ; wait for RET, even with unique completion
+   ido-create-new-buffer 'always    ; Don't prompt on creating new buffers
+  ))
 
 ;;; Keyboard settings
 (global-set-key (kbd "<C-tab>") 'other-window)
