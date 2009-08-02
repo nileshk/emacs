@@ -6,6 +6,14 @@
 ;; This mode is derived from c-mode and at present only provides
 ;; syntax highlighting for JPL code.
 ;;
+;; Installation:
+;; 
+;; 1) Ensure the jpl-mode.el is in your load path
+;; 2) Add the following to your .emacs:
+;;
+;;   (autoload 'jpl-mode "jpl-mode" nil t)
+;;   (add-to-list 'auto-mode-alist '("\\.jpl$" . jpl-mode))
+;;
 
 (require 'font-lock)
 
