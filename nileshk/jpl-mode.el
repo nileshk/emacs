@@ -1,4 +1,4 @@
-;; jpl-mode.el - Mode for editing Prolifics Panther JPL
+;; jpl-mode.el - Major Mode for editing Prolifics Panther JPL
 ;;
 ;; Author: Nilesh Kapadia - http://www.nileshk.com
 ;; Version: 0.1
