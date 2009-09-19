@@ -262,9 +262,9 @@
   '(progn
      (define-key org-mode-map "\M-p" 'org-metaup)
      (define-key org-mode-map "\M-n" 'org-metadown)))
-(add-hook 'org-mode-hook
-          '(lambda ()
-             (setq truncate-lines nil)))
+;;(add-hook 'org-mode-hook
+;;          '(lambda ()
+;;             (setq truncate-lines nil)))
 
 (setq org-agenda-files (list "~/org/work.org"))
 
