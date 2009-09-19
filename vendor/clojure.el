@@ -2,6 +2,7 @@
 ;;;;    Programming - Clojure
 
 (defvar clj-root (concat (expand-file-name "~") "/Apps/clj/"))
+(defvar scripts-folder (concat (expand-file-name "~") "/Scripts"))
 (setq load-path (append (list (concat clj-root "slime")
 			      (concat clj-root "slime/contrib")
 			      (concat clj-root "clojure-mode")
@@ -9,6 +10,7 @@
 			load-path))
 
 (setq swank-clojure-binary "/Users/nil/Scripts/clj-cmd")
+;(setq swank-clojure-binary (concat scripts-folder "/clj-cmd"))
 (defvar clj-cmd)
 ;; (concat (expand-file-name "~") "/Scripts/clj-cmd"))
 (setenv "CLJ_CMD" 
@@ -17,7 +19,7 @@
 		      "-server "
 		      "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8888 "
 		      "-cp "
-		      (concat clj-root "clojure/trunk/clojure.jar:")
+		      (concat clj-root "clojure/clojure-1.0.0.jar:")
 		      (concat (expand-file-name "~") "/.clojure:")
 		      (concat clj-root "clojure-contrib/trunk/clojure-contrib.jar:")
 		      ;(concat clj-root "src/book-code:")
@@ -27,10 +29,11 @@
   '(progn
      (slime-setup)
      (setq slime-lisp-implementations
-	   `((clojure ("/Users/nil/Scripts/clj-cmd") :init swank-clojure-init)
+           `((clojure ("/Users/nil/Scripts/clj-cmd") :init swank-clojure-init)
+;;	   `((clojure ((concat scripts-folder "/clj-cmd")) :init swank-clojure-init)
 	     ,@slime-lisp-implementations))))
       
-(require 'clojure-auto)
+(require 'clojure-mode)
 (require 'swank-clojure-autoload)
 
 (defun slime-java-describe (symbol-name)
@@ -106,3 +109,5 @@
 				  (define-key slime-repl-mode-map (kbd "C-c d") 'slime-java-describe)
 				  (define-key slime-mode-map (kbd "C-c D") 'slime-javadoc)
 				  (define-key slime-repl-mode-map (kbd "C-c D") 'slime-javadoc)))
+
+;(clojure-slime-config "/Users/nil/Apps/clj")

@@ -20,6 +20,7 @@
 (add-to-list 'load-path (concat emacs-root-p "slime/contrib"))
 (add-to-list 'load-path (concat emacs-root-p "haskell-mode"))
 (add-to-list 'load-path (concat emacs-root-p "scala-mode"))
+;;(add-to-list 'load-path (concat emacs-root-p "clojure-mode"))
 (load (concat emacs-root-p "nileshk/functions.el"))
 (load (concat emacs-root-p "nileshk/desktops.el"))
 (load (concat emacs-root-p "scala-mode/scala-mode-auto.el"))
@@ -86,7 +87,9 @@
 (add-to-list 'auto-mode-alist '("\\.jpl$" . jpl-mode))
 
 ;; Clojure mode
-(autoload 'clojure-mode "clojure" nil t)
+;;(autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
+(autoload 'clojure-mode "clojure" "A major mode for Clojure" t)
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 
 (eval-after-load "plsql"
   '(progn
