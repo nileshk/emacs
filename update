@@ -44,3 +44,7 @@ fi
 if [ ! -d desktops/home ]; then
     mkdir desktops/home
 fi
+
+# TODO Byte compile:
+# emacs -batch -f batch-byte-compile vendor/*.el
+# ...

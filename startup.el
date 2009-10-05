@@ -51,7 +51,7 @@
 (when linux-p
   (message "Linux detected")
   (set-default-font
-   "-outline-Consolas-normal-r-normal-normal-13-97-96-96-c-*-iso8859-1")
+   "-*-Andale Mono-normal-r-*-*-14-*-*-*-c-*-iso8859-1")
   (add-to-list 'load-path "/usr/share/common-lisp/source/slime/")
   (setq inferior-lisp-program "/usr/bin/sbcl")
   (if (> emacs-major-version 20) (tool-bar-mode -1))
@@ -63,7 +63,7 @@
   (message "MS Windows detected")
   (if (> emacs-major-version 20) (tool-bar-mode -1))
   (set-default-font
-   "-outline-Andale Mono-normal-r-normal-normal-14-97-96-96-c-*-iso8859-1")
+   "-*-Andale Mono-normal-r-*-*-14-*-*-*-c-*-iso8859-1")
   (defun w32-maximize-frame ()
     "Maximize the current frame"
     (interactive)
