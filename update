@@ -1,0 +1,33 @@
+#!/bin/bash
+
+CLOJURE_DIR=$HOME/Apps/clj
+
+# Haskell Mode
+if [ ! -d haskell-mode ]; then
+    echo "Installing haskell-mode"
+    curl -L -O http://www.iro.umontreal.ca/~monnier/elisp/haskell-mode.tar.gz
+    tar xvzf haskell-mode.tar.gz
+    mv haskell-mode-* haskell-mode
+    rm haskell-mode.tar.gz
+fi
+
+# Scala Mode
+if [ -d scala-mode ]; then
+    echo "Updating scala-mode"
+    svn up scala-mode
+else
+    echo "Checking out scala-mode"
+    svn co http://lampsvn.epfl.ch/svn-repos/scala/scala-tool-support/trunk/src/emacs/ scala-mode
+fi
+
+# Clojure Mode
+if [ ! -d $CLOJURE_DIR/clojure-mode ]; then
+    echo "Symlinking to clojure-mode"
+    ln -s $CLOJURE_DIR/clojure-mode
+fi
+
+# Slime
+if [ ! -d $CLOJURE_DIR/slime ]; then
+    echo "Symlink to slime"
+    ln -s $CLOJURE_DIR/slime
+fi

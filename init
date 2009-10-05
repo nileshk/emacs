@@ -1,20 +1,8 @@
 #!/bin/bash
 
-CLOJURE_DIR=$HOME/Apps/clj
-
 # Haskell Mode
 if [ -d haskell-mode ]; then
+    echo "Removing haskell-mode so it gets reloaded"
     rm -rf haskell-mode
 fi    
-curl -L -O http://www.iro.umontreal.ca/~monnier/elisp/haskell-mode.tar.gz
-tar xvzf haskell-mode.tar.gz
-mv haskell-mode-* haskell-mode
-rm haskell-mode.tar.gz
-
-# Scala Mode
-svn co http://lampsvn.epfl.ch/svn-repos/scala/scala-tool-support/trunk/src/emacs/ scala-mode
-
-echo Symlinking to clojure-mode
-ln -s $CLOJURE_DIR/clojure-mode
-echo Symlink to slime
-ln -s $CLOJURE_DIR/slime
+./update
