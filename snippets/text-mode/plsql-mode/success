@@ -1,0 +1,6 @@
+# This was cloned from a TextMate bundle for yasnippet.
+# --
+IF po_result_code = Corecontainertask.c_result_success
+THEN
+  $0
+END IF;

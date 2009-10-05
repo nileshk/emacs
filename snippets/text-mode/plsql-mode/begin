@@ -1,0 +1,9 @@
+# This was cloned from a TextMate bundle for yasnippet.
+# --
+BEGIN
+  $0
+
+EXCEPTION
+  WHEN ${1:OTHERS} THEN
+    ${2:NULL};
+END;

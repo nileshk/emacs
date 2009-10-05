@@ -1,0 +1,5 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+	<delete id="${id}" parameterClass="string">
+		DELETE FROM ${table} WHERE ${col} = #value:VARCHAR#
+	</delete>

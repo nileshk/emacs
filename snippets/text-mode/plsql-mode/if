@@ -1,0 +1,6 @@
+# This was cloned from a TextMate bundle for yasnippet.
+# --
+IF ${1:condition}
+THEN
+	$0
+END IF;

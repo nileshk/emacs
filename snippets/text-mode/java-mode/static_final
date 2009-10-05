@@ -1,0 +1,3 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+${visibility:link(public,protected,private)} static final ${type:link(String,int)} ${NAME};

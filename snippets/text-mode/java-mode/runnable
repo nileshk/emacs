@@ -1,0 +1,7 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+new Runnable() {
+	public void run() {
+		${line_selection}
+	}
+}

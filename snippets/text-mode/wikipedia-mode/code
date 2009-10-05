@@ -1,0 +1,3 @@
+#name : code tag
+# --
+<code>${1:CODE}</code> $0

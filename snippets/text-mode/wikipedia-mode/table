@@ -1,0 +1,8 @@
+#name : Table
+# --
+{| class="wikitable"  cellpadding="2" cellspacing="0" border="1"
+|-valign="bottom"
+!'''${1:Header1}''' $0
+|-
+| ${2:Value1}
+|}

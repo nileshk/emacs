@@ -1,0 +1,6 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+while (${en:var(java.util.Enumeration)}.hasMoreElements()) {
+	${type:argType(en)} ${elem:newName(type)} = (${type}) ${en}.nextElement();
+	${cursor}
+}

@@ -40,6 +40,9 @@
         (width . 2000) (height . 2000)))
   (when window-system 
     (require 'fixpath)
+    (set-default-font
+     "-*-Andale Mono-normal-r-*-*-14-*-*-*-c-*-iso8859-1")
+;;     "-outline-Inconsolata-normal-r-normal-normal-13-97-96-96-c-*-iso8859-1")
    ;; Don't open new frame when a file is drag-and-dropped or opened from Finder
     (setq ns-pop-up-frames nil)))
    ;; Set environment variables
@@ -47,6 +50,8 @@
 
 (when linux-p
   (message "Linux detected")
+  (set-default-font
+   "-outline-Consolas-normal-r-normal-normal-13-97-96-96-c-*-iso8859-1")
   (add-to-list 'load-path "/usr/share/common-lisp/source/slime/")
   (setq inferior-lisp-program "/usr/bin/sbcl")
   (if (> emacs-major-version 20) (tool-bar-mode -1))
@@ -57,6 +62,8 @@
 (when mswindows-p
   (message "MS Windows detected")
   (if (> emacs-major-version 20) (tool-bar-mode -1))
+  (set-default-font
+   "-outline-Andale Mono-normal-r-normal-normal-14-97-96-96-c-*-iso8859-1")
   (defun w32-maximize-frame ()
     "Maximize the current frame"
     (interactive)

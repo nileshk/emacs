@@ -1,0 +1,10 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+switch (${key}) {
+	case ${value}:
+		${cursor}
+		break;
+
+	default:
+		break;
+}

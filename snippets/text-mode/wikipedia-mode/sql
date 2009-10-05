@@ -1,0 +1,6 @@
+#name : Geshi source tag for SQL
+# --
+<source lang="sql">
+${1:Content}
+</source>
+$0

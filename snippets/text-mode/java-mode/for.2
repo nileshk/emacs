@@ -1,0 +1,6 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+for (${iteratorType:newType(java.util.Iterator)} ${iterator} = ${collection}.iterator(); ${iterator}.hasNext(); ) {
+	${type:elemType(collection)} ${name:newName(type)} = (${type}) ${iterator}.next();
+	${cursor}
+}

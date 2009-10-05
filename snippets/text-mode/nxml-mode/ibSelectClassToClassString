@@ -1,0 +1,7 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+	<select id="${id}" parameterClass="string" resultClass="string">
+		SELECT ${column}
+		  FROM ${table}
+		 WHERE ${where}
+	</select>

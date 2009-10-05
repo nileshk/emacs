@@ -1,0 +1,6 @@
+#name : pre tag
+# --
+<pre>
+${1:Content}
+</pre>
+$0

@@ -1,0 +1,6 @@
+#name : pre tag with brush class for syntax highlighting
+# --
+<pre class="brush:${2:Language}">
+${1:Content}
+</pre>
+$0

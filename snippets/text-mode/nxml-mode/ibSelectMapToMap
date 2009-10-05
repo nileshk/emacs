@@ -1,0 +1,9 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+	<select id="${id}"
+		parameterMap="${paramMap}"
+		resultMap="${resultMap}">
+		SELECT *
+		  FROM ${table}
+		 WHERE ${where}
+	</select>

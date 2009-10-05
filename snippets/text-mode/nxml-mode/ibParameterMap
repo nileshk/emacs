@@ -1,0 +1,6 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+	<parameterMap id="${id}" class="${class}">
+		<parameter property="" />
+		<parameter property="" jdbcType="INTEGER" />
+	</parameterMap>

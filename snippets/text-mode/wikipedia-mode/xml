@@ -1,0 +1,6 @@
+#name : Geshi source tag for XML
+# --
+<source lang="xml">
+${1:Content}
+</source>
+$0

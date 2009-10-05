@@ -1,0 +1,10 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+	<update id="${id}" parameterMap="${paramMap}">
+		UPDATE ${table}
+		   SET ${col1} = #${prop1}:VARCHAR#,
+		       ${col2} = #${prop2}:VARCHAR#,
+		       ${col3} = #${prop3}:INTEGER#,
+		       ${col4} = #${prop4}:VARCHAR#
+		 WHERE ${where}
+	</update>

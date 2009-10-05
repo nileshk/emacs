@@ -1,0 +1,6 @@
+#name : Geshi source tag for PL/SQL
+# --
+<source lang="plsql">
+${1:Content}
+</source>
+$0

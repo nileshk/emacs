@@ -1,0 +1,4 @@
+# This was cloned from a TextMate bundle for yasnippet.
+# --
+Corelogger.Log_Open_PrintError_Close(pi_pkg_name, l_procname,
+    $0);

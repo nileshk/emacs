@@ -1,0 +1,6 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+	<resultMap id="${resultMapName}ResultMap" class="com.circuitvision.ws.dto.${dtoNam}">
+		<result property="${prop1}" column="${column1}"/>
+		<result property="${prop2}" column="${column2}" jdbcType="VARCHAR"/>
+	</resultMap>

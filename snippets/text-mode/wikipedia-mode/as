@@ -1,0 +1,6 @@
+#name : Geshi source tag for ActionScript
+# --
+<source lang="actionscript">
+${1:Content}
+</source>
+$0

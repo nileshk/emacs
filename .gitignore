@@ -1,3 +1,8 @@
 .svn
 *.elc
 .DS_Store
+clojure-mode
+haskell-mode
+scala-mode
+desktops
+slime

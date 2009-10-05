@@ -1,0 +1,5 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+	<procedure id="${id}" parameterMap="${paramMap}">
+		{? = call ${package}.${function}(?, ?)}
+	</procedure>

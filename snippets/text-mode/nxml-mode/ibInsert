@@ -1,0 +1,14 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+	<insert id="${id}" parameterClass="map">
+		INSERT INTO ${table} (
+			${col1},
+			${col2},
+			${col3}
+		)
+		VALUES (
+			#${prop1}:VARCHAR#,
+			#${prop2}:VARCHAR#,
+			#${prop3}:VARCHAR#
+		)
+	</insert>

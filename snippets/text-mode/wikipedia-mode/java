@@ -1,0 +1,6 @@
+#name : Geshi source tag for Java
+# --
+<source lang="java5">
+${1:Content}
+</source>
+$0

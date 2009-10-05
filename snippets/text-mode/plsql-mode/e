@@ -1,0 +1,5 @@
+# This was cloned from a TextMate bundle for yasnippet.
+# --
+ELSIF ${1:condition}
+THEN
+	$0

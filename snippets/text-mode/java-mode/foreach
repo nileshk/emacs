@@ -1,0 +1,5 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+for (${iterable_type} ${iterable_element} : ${iterable}) {
+	${cursor}
+}

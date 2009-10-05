@@ -1,0 +1,5 @@
+# This was cloned from an Eclipse template for yasnippet.
+# --
+synchronized (${mutex:var}) {
+	${line_selection}
+}
