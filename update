@@ -21,13 +21,26 @@ else
 fi
 
 # Clojure Mode
-if [ ! -d $CLOJURE_DIR/clojure-mode ]; then
+if [ ! -d clojure-mode ]; then
     echo "Symlinking to clojure-mode"
     ln -s $CLOJURE_DIR/clojure-mode
 fi
 
 # Slime
-if [ ! -d $CLOJURE_DIR/slime ]; then
+if [ ! -d slime ]; then
     echo "Symlink to slime"
     ln -s $CLOJURE_DIR/slime
+fi
+
+# Create desktop dirs if they don't exist
+if [ ! -d desktops ]; then
+    mkdir desktops
+fi
+
+if [ ! -d desktops/work ]; then
+    mkdir desktops/work
+fi
+
+if [ ! -d desktops/home ]; then
+    mkdir desktops/home
 fi
