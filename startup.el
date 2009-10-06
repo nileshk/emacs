@@ -219,12 +219,16 @@
              (message "markdown-cycle should be called")
              (markdown-cycle)))))))
 
+;; MediaWiki
 (autoload 'wikipedia-mode "wikipedia-mode.el"
   "Major mode for editing documents in Wikipedia markup." t)
 
 (add-to-list 'auto-mode-alist
              '("opus_index\.php.*\\.txt$" . wikipedia-mode))
 
+(add-hook 'wikipedia-mode-hook
+   '(lamdba ()
+       (longlines-mode -1)))
 
 ; TODO lazy load this
 ;; (pymacs-load "ropemacs" "rope-")
