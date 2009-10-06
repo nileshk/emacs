@@ -23,7 +23,9 @@
 ;;(add-to-list 'load-path (concat emacs-root-p "clojure-mode"))
 (load (concat emacs-root-p "nileshk/functions.el"))
 (load (concat emacs-root-p "nileshk/desktops.el"))
-(load (concat emacs-root-p "scala-mode/scala-mode-auto.el"))
+(let ((elfile (concat emacs-root-p "scala-mode/scala-mode-auto.el")))
+  (if (file-exists-p elfile)
+    (load elfile)))
 
 ;; http://nschum.de/src/emacs/guess-style/
 (autoload 'guess-style-set-variable "guess-style" nil t)
