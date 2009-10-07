@@ -34,7 +34,7 @@
   (message "Mac OS X detected")
   (setq inferior-lisp-program "/sw/bin/sbcl")
   (add-to-list 'load-path (concat script-root-p "Emacs/slime"))
-  (load (concat emacs-root-p "slime/slime-autoloads.el"))
+  (load-if-exists (concat emacs-root-p "slime/slime-autoloads.el"))
   (setq initial-frame-alist
       `((left . 0) (top . 0)
         (width . 2000) (height . 2000)))
@@ -69,7 +69,8 @@
     (interactive)
     (w32-send-sys-command 61488))
   (add-hook 'window-setup-hook 'w32-maximize-frame t)
-  (autoload 'powershell "powershell" "Run powershell as a shell within emacs." t))
+  (autoload 'powershell 
+    "powershell" "Run powershell as a shell within emacs." t))
 
 (when cygwin-p
   (message "Cygwin detected"))
@@ -191,7 +192,8 @@
 
 ;;; XML
 (add-to-list 'auto-mode-alist
-             '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\|xsd\\|svg\\|rss\\)\\'" . nxml-mode))
+             '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\|xsd\\|svg\\|rss\\)\\'" . 
+               nxml-mode))
 (setq nxml-child-indent 4)
 (setq nxml-outline-child-indent 4)
 (add-hook 'nxml-mode-hook
@@ -315,6 +317,8 @@
 ;(global-set-key (kbd "<C-tab>") 'bury-buffer)
 
 ;; How long Emacs took to load
-(message "startup.el loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
-                           (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))
+(message "startup.el loaded in %ds" 
+         (destructuring-bind (hi lo ms) (current-time)
+           (- (+ hi lo) (+ (first *emacs-load-start*)
+                           (second *emacs-load-start*)))))
 ;; Should not be any code after this
