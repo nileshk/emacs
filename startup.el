@@ -250,11 +250,14 @@
 (global-set-key "\C-xt" 'twitter-get-friends-timeline)
 (add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
 
-;; Turn off the annoying default backup behaviour
-;; TODO: Create folder if it does not exist
-(if (file-directory-p "~/.emacs.d/backup")
-    (setq backup-directory-alist '(("." . "~/.emacs.d/backup")))
-    (message "Directory does not exist: ~/.emacs.d/backup"))
+;; Turn off the default backup behaviour
+(let ((backup-dir "~/.emacs.d/backup"))
+  '(progn
+     (if (not (file-directory-p backup-dir))
+	 '(progn
+	    (message (concat "Creating directory: " backup-dir))
+	    (make-directory backup-dir))))
+  (setq backup-directory-alist '(("." . backup-dir))))
 
 ;;; General settings
 (setq default-tab-width 4)
