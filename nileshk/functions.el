@@ -1,3 +1,8 @@
+(defun load-if-exists (file)
+  "Load an ELisp file only if it exists"
+  (if (file-exists-p file)
+      (load file)))
+
 (defun split-into-four ()
   "Split current window into 4 windows"
   (interactive)
