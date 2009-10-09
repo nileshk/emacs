@@ -257,7 +257,7 @@
 	 '(progn
 	    (message (concat "Creating directory: " backup-dir))
 	    (make-directory backup-dir))))
-  (setq backup-directory-alist '(("." . backup-dir))))
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))))
 
 ;;; General settings
 (setq default-tab-width 4)
