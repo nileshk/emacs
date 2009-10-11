@@ -73,7 +73,8 @@
   (interactive)
   (if (y-or-n-p (format "Are you sure you want to exit Emacs? "))
       (progn
-        (close-desktop)
+        ;; TODO get close-dkestop to work reliably:
+        ;; (close-desktop)
         (if (> emacs-major-version 22)
             (save-buffers-kill-terminal)
           (save-buffers-kill-emacs)))
