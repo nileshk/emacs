@@ -95,7 +95,7 @@
   (interactive)
   (slime 'clojure))
 
-(global-set-key [f5] 'run-clojure)
+(global-set-key [(control f5)] 'run-clojure)
 (global-set-key [(control f11)] 'slime-selector)
 
 (add-hook 'slime-connected-hook (lambda ()
