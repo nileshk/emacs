@@ -21,9 +21,11 @@
 		      "-cp "
 		      (concat clj-root "clojure/clojure-1.0.0.jar:")
 		      (concat (expand-file-name "~") "/.clojure:")
-		      (concat clj-root "clojure-contrib/trunk/clojure-contrib.jar:")
+		      (concat clj-root "clojure-contrib/clojure-contrib.jar:")
+		      (concat clj-root "swank-clojure/swank-clojure.jar:")
 		      ;(concat clj-root "src/book-code:")
 		      " clojure.lang.Repl")))
+
 
 (eval-after-load "slime"
   '(progn
