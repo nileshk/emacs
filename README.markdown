@@ -16,5 +16,6 @@ Organization
 * `startup.el` - The main configuration file which I load from my .emacs
 * `/nileshk` - This folder contains modes, functions, etc that I have
   mostly written myself or 3rd party packages which I have modified
+* `/snippets` - YASnippet template files
+* `/support` - Misc scripts and other files that support Emacs config
 * `/vendor` - This folder contains unmodified 3rd party packages
-
