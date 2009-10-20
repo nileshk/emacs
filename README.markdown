@@ -19,3 +19,11 @@ Organization
 * `/snippets` - YASnippet template files
 * `/support` - Misc scripts and other files that support Emacs config
 * `/vendor` - This folder contains unmodified 3rd party packages
+
+Setup
+-----
+
+* `init` - bash script for initializing dependencies (fetching files
+  needed)
+* `update` - bash script for updating dependencies (fetching files
+  needed)
