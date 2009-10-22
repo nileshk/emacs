@@ -6,26 +6,13 @@
 (setq load-path (append (list (concat clj-root "slime")
 			      (concat clj-root "slime/contrib")
 			      (concat clj-root "clojure-mode")
-			      (concat clj-root "swank-clojure"))
+			      (concat clj-root "swank-clojure/src/emacs"))
 			load-path))
 
 (setq swank-clojure-binary "/Users/nil/Scripts/clj-cmd")
 ;(setq swank-clojure-binary (concat scripts-folder "/clj-cmd"))
 (defvar clj-cmd)
 ;; (concat (expand-file-name "~") "/Scripts/clj-cmd"))
-(setenv "CLJ_CMD" 
-	(setq clj-cmd
-	      (concat "java "
-		      "-server "
-		      "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8888 "
-		      "-cp "
-		      (concat clj-root "clojure/clojure-1.0.0.jar:")
-		      (concat (expand-file-name "~") "/.clojure:")
-		      (concat clj-root "clojure-contrib/clojure-contrib.jar:")
-		      (concat clj-root "swank-clojure/swank-clojure.jar:")
-		      ;(concat clj-root "src/book-code:")
-		      " clojure.lang.Repl")))
-
 
 (eval-after-load "slime"
   '(progn
@@ -95,6 +82,19 @@
 (defun run-clojure ()
   "Starts clojure in Slime"
   (interactive)
+  (setenv "CLJ_CMD" 
+          (setq clj-cmd
+                (concat "java "
+                        "-server "
+                        "-Xdebug -Xrunjdwp:transport=dt_socket,"
+                        "server=y,suspend=n,address=8888 "
+                        "-cp "
+                        (concat clj-root "clojure/clojure-1.0.0.jar:")
+                        (concat (expand-file-name "~") "/.clojure:")
+                        (concat clj-root "clojure-contrib/clojure-contrib.jar:")
+                        (concat clj-root "swank-clojure/swank-clojure.jar:")
+                                        ;(concat clj-root "src/book-code:")
+                        " clojure.lang.Repl")))
   (slime 'clojure))
 
 (global-set-key [(control f5)] 'run-clojure)
@@ -113,6 +113,9 @@
 				  (define-key slime-repl-mode-map (kbd "C-c D") 'slime-javadoc)))
 
 ;(clojure-slime-config "/Users/nil/Apps/clj")
+
+;;__________________________________________________________________________
+;;;;    Programming - Clojure
 
 
 (defun maven-find-pom (path)
