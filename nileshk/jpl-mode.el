@@ -22,7 +22,9 @@
   "JPL types.")
 
 (defvar jpl-keywords
-  '("vars" "proc" "parms" "if" "else" "call" "send" "return" "global" "RETURN")
+  '("vars" "proc" "parms" "if" "else" "call" "send" "return" "global" 
+    "break" "while" "include" "public" "unload" "flush" "msg" "receive"
+    "send" "dbms" "RETURN")
   "JPL keywords.")
 
 (defvar jpl-constants
