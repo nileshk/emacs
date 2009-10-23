@@ -115,8 +115,7 @@
 ;(clojure-slime-config "/Users/nil/Apps/clj")
 
 ;;__________________________________________________________________________
-;;;;    Programming - Clojure
-
+;;;;    Maven-specific config
 
 (defun maven-find-pom (path)
   "Finds the nearest pom to the given path."
