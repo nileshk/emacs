@@ -1,0 +1,11 @@
+private ${1:String} ${2:propName};
+
+public $1 get${2:$(concat (capitalize (substring text 0 1)) (substring text 1)))}() {
+    return this.$2;
+}
+
+public void set${2:$(capitalize text)}(${1:propType} $2) {
+    this.$2 = $2;
+}
+
+$0
