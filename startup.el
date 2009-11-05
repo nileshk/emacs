@@ -295,6 +295,9 @@
 ;(setq show-paren-mode t)
 ;(setq show-paren-style 'parenthesis)
 
+;; Modeline config
+(set-face-background 'mode-line "#acccfc")
+
 ;; Ido mode
 (when (> emacs-major-version 21)
   (ido-mode 1)
