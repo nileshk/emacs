@@ -25,6 +25,16 @@
 (load (concat emacs-root-p "nileshk/desktops.el"))
 (load-if-exists (concat emacs-root-p "scala-mode/scala-mode-auto.el"))
 
+;;; YASnippet
+(add-to-list 'load-path (concat emacs-root-p "vendor/yasnippet.el"))
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory (concat emacs-root-p "snippets"))
+(require 'dropdown-list)
+(setq yas/prompt-functions '(yas/dropdown-prompt
+                             yas/ido-prompt
+                             yas/completing-prompt))
+
 ;; http://nschum.de/src/emacs/guess-style/
 (autoload 'guess-style-set-variable "guess-style" nil t)
 (autoload 'guess-style-guess-variable "guess-style")
@@ -237,10 +247,6 @@
 ;; (setq ropemacs-enable-autoimport t)
 ;;  '(add-to-list 'pymacs-load-path YOUR-PYMACS-DIRECTORY"))
 
-;;; YASnippet
-(require 'yasnippet) ;; not yasnippet-bundle
-(yas/initialize)
-(yas/load-directory (concat emacs-root-p "snippets"))
 
 ;; (require 'auto-complete)
 ;; (load "~/Emacs/scripts/auto-complete-python.el")
