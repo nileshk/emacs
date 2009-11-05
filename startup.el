@@ -98,6 +98,9 @@
 ;;(autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
 (autoload 'clojure-mode "clojure" "A major mode for Clojure" t)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(eval-after-load "clojure"
+  '(progn
+     (highlight-parentheses-mode t)))
 
 (eval-after-load "plsql"
   '(progn
