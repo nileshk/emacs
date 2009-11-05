@@ -108,6 +108,9 @@
 ;;(autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
 (autoload 'clojure-mode "clojure" "A major mode for Clojure" t)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(eval-after-load "clojure"
+  '(progn
+     (highlight-parentheses-mode t)))
 
 (eval-after-load "plsql"
   '(progn
@@ -297,6 +300,9 @@
 (highlight-parentheses-mode t)
 ;(setq show-paren-mode t)
 ;(setq show-paren-style 'parenthesis)
+
+;; Modeline config
+(set-face-background 'mode-line "#acccfc")
 
 ;; Ido mode
 (when (> emacs-major-version 21)
