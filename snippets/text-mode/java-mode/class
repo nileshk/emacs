@@ -1,0 +1,11 @@
+# Java class snippet
+# 
+# This should work for class name, but doesn't:
+# (replace-regexp-in-string "\\(\\.java\\)" "" (buffer-name) nil nil 1)
+# TODO: Automatically figure out package name based on file path
+# --
+package ${1:package};
+
+public class `(substring (buffer-name) 0 -5)` {
+    $0
+}
