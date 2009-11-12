@@ -22,6 +22,7 @@
 (add-to-list 'load-path (concat emacs-root-p "scala-mode"))
 ;;(add-to-list 'load-path (concat emacs-root-p "clojure-mode"))
 (load (concat emacs-root-p "nileshk/functions.el"))
+(load (concat emacs-root-p "nileshk/ido-filecache.el"))
 (load (concat emacs-root-p "nileshk/desktops.el"))
 (load-if-exists (concat emacs-root-p "scala-mode/scala-mode-auto.el"))
 
@@ -330,6 +331,7 @@
 (global-set-key (kbd "s-F") 'indent-region)
 ;; (global-unset-key (kbd "C-z"))
 ;(global-set-key (kbd "<C-tab>") 'bury-buffer)
+(global-set-key (kbd "s-R") 'file-cache-ido-find-file)
 
 ;; How long Emacs took to load
 (message "startup.el loaded in %ds" 
