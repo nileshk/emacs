@@ -242,7 +242,7 @@
              '("opus_index\.php.*\\.txt$" . wikipedia-mode))
 
 (add-hook 'wikipedia-mode-hook
-   '(lamdba ()
+   '(progn
        (longlines-mode -1)))
 
 ; TODO lazy load this
