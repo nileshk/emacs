@@ -1,0 +1,6 @@
+#name : Geshi source tag for SQL
+# --
+<pre class="brush:sql">
+$1
+</pre>
+$0
