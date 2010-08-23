@@ -290,7 +290,9 @@
 (eval-after-load "org"
   '(progn
      (define-key org-mode-map "\M-p" 'org-metaup)
-     (define-key org-mode-map "\M-n" 'org-metadown)))
+     (define-key org-mode-map "\M-n" 'org-metadown)
+     (setq org-todo-keywords
+       '((sequence "WAIT" "TODO" "INPROGRESS" "|" "DONE")))))
 ;;(add-hook 'org-mode-hook
 ;;          '(lambda ()
 ;;             (setq truncate-lines nil)))
