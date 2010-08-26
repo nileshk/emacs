@@ -335,6 +335,10 @@
 ;(global-set-key (kbd "<C-tab>") 'bury-buffer)
 (global-set-key (kbd "s-R") 'file-cache-ido-find-file)
 
+;;; Upcase / downcase commands enabled
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
 ;; How long Emacs took to load
 (message "startup.el loaded in %ds" 
          (destructuring-bind (hi lo ms) (current-time)
