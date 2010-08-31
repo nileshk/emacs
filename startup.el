@@ -26,6 +26,13 @@
 (load (concat emacs-root-p "nileshk/desktops.el"))
 (load-if-exists (concat emacs-root-p "scala-mode/scala-mode-auto.el"))
 
+;;; Edit server for Chrome's Edit in Emacs extension
+(if (locate-library "edit-server")
+    (progn
+      (require 'edit-server)
+      (setq edit-server-new-frame nil)
+      (edit-server-start)))
+
 ;;; YASnippet
 (add-to-list 'load-path (concat emacs-root-p "vendor/yasnippet.el"))
 (require 'yasnippet)
