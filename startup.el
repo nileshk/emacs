@@ -22,8 +22,26 @@
 (add-to-list 'load-path (concat emacs-root-p "scala-mode"))
 ;;(add-to-list 'load-path (concat emacs-root-p "clojure-mode"))
 (load (concat emacs-root-p "nileshk/functions.el"))
+(load (concat emacs-root-p "nileshk/ido-filecache.el"))
 (load (concat emacs-root-p "nileshk/desktops.el"))
 (load-if-exists (concat emacs-root-p "scala-mode/scala-mode-auto.el"))
+
+;;; Edit server for Chrome's Edit in Emacs extension
+(if (locate-library "edit-server")
+    (progn
+      (require 'edit-server)
+      (setq edit-server-new-frame nil)
+      (edit-server-start)))
+
+;;; YASnippet
+(add-to-list 'load-path (concat emacs-root-p "vendor/yasnippet.el"))
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory (concat emacs-root-p "snippets"))
+(require 'dropdown-list)
+(setq yas/prompt-functions '(yas/dropdown-prompt
+                             yas/ido-prompt
+                             yas/completing-prompt))
 
 ;; http://nschum.de/src/emacs/guess-style/
 (autoload 'guess-style-set-variable "guess-style" nil t)
@@ -98,6 +116,9 @@
 ;;(autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
 (autoload 'clojure-mode "clojure" "A major mode for Clojure" t)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(eval-after-load "clojure"
+  '(progn
+     (highlight-parentheses-mode t)))
 
 (eval-after-load "plsql"
   '(progn
@@ -229,7 +250,7 @@
              '("opus_index\.php.*\\.txt$" . wikipedia-mode))
 
 (add-hook 'wikipedia-mode-hook
-   '(lamdba ()
+   '(progn
        (longlines-mode -1)))
 
 ; TODO lazy load this
@@ -237,10 +258,6 @@
 ;; (setq ropemacs-enable-autoimport t)
 ;;  '(add-to-list 'pymacs-load-path YOUR-PYMACS-DIRECTORY"))
 
-;;; YASnippet
-(require 'yasnippet) ;; not yasnippet-bundle
-(yas/initialize)
-(yas/load-directory (concat emacs-root-p "snippets"))
 
 ;; (require 'auto-complete)
 ;; (load "~/Emacs/scripts/auto-complete-python.el")
@@ -280,7 +297,9 @@
 (eval-after-load "org"
   '(progn
      (define-key org-mode-map "\M-p" 'org-metaup)
-     (define-key org-mode-map "\M-n" 'org-metadown)))
+     (define-key org-mode-map "\M-n" 'org-metadown)
+     (setq org-todo-keywords
+       '((sequence "WAIT" "TODO" "INPROGRESS" "|" "DONE")))))
 ;;(add-hook 'org-mode-hook
 ;;          '(lambda ()
 ;;             (setq truncate-lines nil)))
@@ -291,6 +310,9 @@
 (highlight-parentheses-mode t)
 ;(setq show-paren-mode t)
 ;(setq show-paren-style 'parenthesis)
+
+;; Modeline config
+(set-face-background 'mode-line "#acccfc")
 
 ;; Ido mode
 (when (> emacs-major-version 21)
@@ -318,6 +340,11 @@
 (global-set-key (kbd "s-F") 'indent-region)
 ;; (global-unset-key (kbd "C-z"))
 ;(global-set-key (kbd "<C-tab>") 'bury-buffer)
+(global-set-key (kbd "s-R") 'file-cache-ido-find-file)
+
+;;; Upcase / downcase commands enabled
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 ;; How long Emacs took to load
 (message "startup.el loaded in %ds" 
