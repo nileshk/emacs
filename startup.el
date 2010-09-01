@@ -304,7 +304,7 @@
 ;;          '(lambda ()
 ;;             (setq truncate-lines nil)))
 
-(setq org-agenda-files (list "~/org/work.org"))
+(setq org-agenda-files (list "~/Dropbox/org/work.org"))
 
 (require 'highlight-parentheses)
 (highlight-parentheses-mode t)
