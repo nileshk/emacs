@@ -43,11 +43,13 @@
                              yas/ido-prompt
                              yas/completing-prompt))
 
+;; guess-style auto-detects indentation style
 ;; http://nschum.de/src/emacs/guess-style/
 (autoload 'guess-style-set-variable "guess-style" nil t)
 (autoload 'guess-style-guess-variable "guess-style")
 (autoload 'guess-style-guess-all "guess-style" nil t)
 
+;;;;;;;; Mac OS X config ;;;;;;;;
 (when macosx-p
   (message "Mac OS X detected")
   (setq inferior-lisp-program "/sw/bin/sbcl")
@@ -66,6 +68,7 @@
    ;; Set environment variables
    ;; (if window-system (ns-grabenv "/bin/bash" "source /Users/nil/.bashrc"))
 
+;;;;;;;; Linux config ;;;;;;;;
 (when linux-p
   (message "Linux detected")
   (set-default-font
@@ -77,6 +80,7 @@
       `((left . 0) (top . 0)
         (width . 2000) (height . 2000))))
 
+;;;;;;;; Windows Native config ;;;;;;;;
 (when mswindows-p
   (message "MS Windows detected")
   (if (> emacs-major-version 20) (tool-bar-mode -1))
@@ -90,6 +94,7 @@
   (autoload 'powershell 
     "powershell" "Run powershell as a shell within emacs." t))
 
+;;;;;;;; Cygwin config ;;;;;;;;
 (when cygwin-p
   (message "Cygwin detected"))
 
@@ -246,6 +251,8 @@
 (autoload 'wikipedia-mode "wikipedia-mode.el"
   "Major mode for editing documents in Wikipedia markup." t)
 
+;; This is used to recognize MediaWiki files received from the Firefox
+;; extension ViewSourceWith and from a specific host named "opus"
 (add-to-list 'auto-mode-alist
              '("opus_index\.php.*\\.txt$" . wikipedia-mode))
 
@@ -262,12 +269,14 @@
 ;; (require 'auto-complete)
 ;; (load "~/Emacs/scripts/auto-complete-python.el")
 
+;; Twitter
 (autoload 'twitter-get-friends-timeline "twitter" nil t)
 (autoload 'twitter-status-edit "twitter" nil t)
 (global-set-key "\C-xt" 'twitter-get-friends-timeline)
 (add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
 
 ;; Turn off the default backup behaviour
+;; Instead, save backups to ~/.emacs.d/backup (creating folder if necessary)
 (let ((backup-dir "~/.emacs.d/backup"))
   '(progn
      (if (not (file-directory-p backup-dir))
