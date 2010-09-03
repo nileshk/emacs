@@ -339,6 +339,14 @@
    ido-create-new-buffer 'always    ; Don't prompt on creating new buffers
   ))
 
+;; Smex ( http://github.com/nonsequitur/smex/ )
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 ;;; Keyboard settings
 (global-set-key (kbd "<C-tab>") 'other-window)
 (global-set-key (kbd "<C-s-right>") 'next-buffer)
