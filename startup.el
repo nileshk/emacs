@@ -107,11 +107,12 @@
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 
 ;; Load js2-mode for Javascript
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(setq
- js2-auto-indent-flag nil
- js2-indent-on-enter-key t)
+;; (autoload 'js2-mode "js2" nil t)
+;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;; (setq
+;;  js2-auto-indent-flag nil
+;;  js2-indent-on-enter-key t
+;;  js2-bounce-indent-p t)
  
 ;; For .jpl files use jpl-mode
 (autoload 'jpl-mode "jpl-mode" nil t)
