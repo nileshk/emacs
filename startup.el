@@ -113,7 +113,15 @@
 ;;  js2-auto-indent-flag nil
 ;;  js2-indent-on-enter-key t
 ;;  js2-bounce-indent-p t)
- 
+
+(add-hook 'js-mode-hook
+          '(lambda ()
+             (guess-style-guess-all)
+             (global-guess-style-info-mode 1)
+             (when (indent-tabs-mode)
+               (setq default-tab-width 4)
+               (setq standard-indent 4))))
+
 ;; For .jpl files use jpl-mode
 (autoload 'jpl-mode "jpl-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.jpl$" . jpl-mode))
@@ -229,6 +237,7 @@
              (global-guess-style-info-mode 1)
              (when (indent-tabs-mode)
                (setq default-tab-width 4)
+               (setq tab-width 4)
                (setq standard-indent 4))))
 
 ;;; Markdown
@@ -258,8 +267,8 @@
              '("opus_index\.php.*\\.txt$" . wikipedia-mode))
 
 (add-hook 'wikipedia-mode-hook
-   '(progn
-       (longlines-mode -1)))
+   '(lambda ()
+      (longlines-mode -1)))
 
 ; TODO lazy load this
 ;; (pymacs-load "ropemacs" "rope-")
