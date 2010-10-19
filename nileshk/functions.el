@@ -138,3 +138,17 @@
 (defadvice other-window (after auto-refresh-dired (arg &optional all-frame) activate)
   (if (equal major-mode 'dired-mode)
       (revert-buffer)))
+
+;;; Org-mode functions
+
+(defun orgtbl-to-mediawiki (table params)
+  (let*
+      ((params2
+       (list
+        :hllstart "{| cellspacing=\"0\" cellpadding=\"2\" border=\"1\" class=\"wikitable\" valign=\"bottom\"\n!"
+        :hlsep "\n!"
+        :tend "|}"
+        :lstart "| "
+        :sep "\n| "
+        :lend "\n|- ")))
+    (orgtbl-to-generic table (org-combine-plists params2 params))))
