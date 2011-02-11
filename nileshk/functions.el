@@ -66,7 +66,9 @@ to follow-mode"
   (split-window-horizontally)
   (split-window-horizontally)
   (balance-windows)
-  (follow-mode 1))
+  (follow-mode 1)
+  ;; Turn on line highlighting to make it easier to track cursor
+  (hl-line-mode 1))
 
 (defun split-into-three-horizontally-and-follow ()
   "Splits current window into 4 windows horizontally and switchs
@@ -76,7 +78,9 @@ to follow-mode"
   (split-window-horizontally)
   (split-window-horizontally)
   (balance-windows)
-  (follow-mode 1))
+  (follow-mode 1)
+  ;; Turn on line highlighting to make it easier to track cursor
+  (hl-line-mode 1))
 
 (global-set-key (kbd "C-x 4") 'split-into-four)
 (global-set-key (kbd "C-x 8") 'split-into-four-switch-buffers)
