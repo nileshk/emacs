@@ -24,11 +24,67 @@
   (split-window-horizontally)
   (other-window 1)
   (next-buffer)
+  (other-window 1))
+
+(defun split-into-three-horizontally-switch-buffers ()
+  "Splits current window into 4 windows horizontally and switch
+buffers inside new windows"
+  (interactive)
+  (delete-other-windows)
+  (split-window-horizontally)
   (other-window 1)
-  (next-buffer))
+  (next-buffer)
+  (split-window-horizontally)
+  (other-window 1)
+  (next-buffer)
+  (other-window 1)
+  (balance-windows))
+
+(defun split-into-four-horizontally-switch-buffers ()
+  "Splits current window into 4 windows horizontally and switch
+buffers inside new windows"
+  (interactive)
+  (delete-other-windows)
+  (split-window-horizontally)
+  (other-window 1)
+  (next-buffer)
+  (split-window-horizontally)
+  (other-window 1)
+  (next-buffer)
+  (split-window-horizontally)
+  (other-window 1)
+  (next-buffer)
+  (other-window 1)
+  (balance-windows))
+
+(defun split-into-four-horizontally-and-follow ()
+  "Splits current window into 4 windows horizontally and switchs
+to follow-mode"
+  (interactive)
+  (delete-other-windows)
+  (split-window-horizontally)
+  (split-window-horizontally)
+  (split-window-horizontally)
+  (balance-windows)
+  (follow-mode 1))
+
+(defun split-into-three-horizontally-and-follow ()
+  "Splits current window into 4 windows horizontally and switchs
+to follow-mode"
+  (interactive)
+  (delete-other-windows)
+  (split-window-horizontally)
+  (split-window-horizontally)
+  (balance-windows)
+  (follow-mode 1))
 
 (global-set-key (kbd "C-x 4") 'split-into-four)
 (global-set-key (kbd "C-x 8") 'split-into-four-switch-buffers)
+(global-set-key (kbd "C-x 7") 'split-into-three-horizontally-switch-buffers)
+(global-set-key (kbd "C-x 9") 'split-into-four-horizontally-switch-buffers)
+
+(global-set-key (kbd "C-x C-8") 'split-into-four-horizontally-and-follow)
+(global-set-key (kbd "C-x C-7") 'split-into-three-horizontally-and-follow)
 
 (defun close-desktop ()
   (interactive)
