@@ -25,6 +25,9 @@
 (load (concat emacs-root-p "nileshk/ido-filecache.el"))
 (load (concat emacs-root-p "nileshk/desktops.el"))
 (load-if-exists (concat emacs-root-p "scala-mode/scala-mode-auto.el"))
+(load-if-exists (concat emacs-root-p "vendor/php-mode.elc"))
+
+;;(load-if-exists (concat emacs-root-p "nxhtml/autostart.el"))
 
 ;;; Edit server for Chrome's Edit in Emacs extension
 (if (locate-library "edit-server")
@@ -121,6 +124,16 @@
              (when (indent-tabs-mode)
                (setq default-tab-width 4)
                (setq standard-indent 4))))
+
+;; PHP
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-hook 'php-mode-hook
+          '(lambda ()
+             (guess-style-guess-all)
+             (global-guess-style-info-mode 1)
+             (setq
+              c-basic-offset 4
+              tab-width 4)))
 
 ;; For .jpl files use jpl-mode
 (autoload 'jpl-mode "jpl-mode" nil t)
@@ -372,6 +385,10 @@
 ;;; Upcase / downcase commands enabled
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+;;; Environment Variables
+
+(setenv "PAGER" "cat")
 
 ;; How long Emacs took to load
 (message "startup.el loaded in %ds" 
