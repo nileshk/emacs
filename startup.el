@@ -240,7 +240,7 @@
 
 ;;; XML
 (add-to-list 'auto-mode-alist
-             '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\|xsd\\|svg\\|rss\\)\\'" . 
+             '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\|xsd\\|svg\\|rss\\|jsp\\)\\'" . 
                nxml-mode))
 (setq nxml-child-indent 4)
 (setq nxml-outline-child-indent 4)
