@@ -386,6 +386,8 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+(blink-cursor-mode 0)
+
 ;;; Environment Variables
 
 (setenv "PAGER" "cat")
