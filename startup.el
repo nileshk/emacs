@@ -362,6 +362,9 @@
    ido-create-new-buffer 'always    ; Don't prompt on creating new buffers
   ))
 
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
 ;; Smex ( http://github.com/nonsequitur/smex/ )
 (require 'smex)
 (smex-initialize)
