@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: $.ajax
+# --
+$.ajax({
+  type: 'POST',
+  url: $1,
+  data: { $2 },
+  dataType: json,
+  success: function(data) {
+    $0
+  }
+});
