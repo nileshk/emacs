@@ -212,3 +212,9 @@ to follow-mode"
         :sep "\n| "
         :lend "\n|- ")))
     (orgtbl-to-generic table (org-combine-plists params2 params))))
+
+(defun pretty-print-xml ()
+  (interactive)
+  (while (search-forward-regexp "\>[ \\t]*\<" nil t)
+    (backward-char) (insert "\n"))
+  (indent-region begin end))
