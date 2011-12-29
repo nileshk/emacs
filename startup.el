@@ -20,6 +20,7 @@
 (add-to-list 'load-path (concat emacs-root-p "slime/contrib"))
 (add-to-list 'load-path (concat emacs-root-p "haskell-mode"))
 (add-to-list 'load-path (concat emacs-root-p "scala-mode"))
+
 ;;(add-to-list 'load-path (concat emacs-root-p "clojure-mode"))
 (load (concat emacs-root-p "nileshk/functions.el"))
 (load (concat emacs-root-p "nileshk/ido-filecache.el"))
@@ -45,6 +46,10 @@
 (setq yas/prompt-functions '(yas/dropdown-prompt
                              yas/ido-prompt
                              yas/completing-prompt))
+
+;;; PHP Debugger
+(add-to-list 'load-path (concat emacs-root-p "geben"))
+(autoload 'geben "geben" "PHP Debugger on Emacs" t)
 
 ;; guess-style auto-detects indentation style
 ;; http://nschum.de/src/emacs/guess-style/
@@ -151,6 +156,14 @@
   '(progn
      (require 'sqlplus)
      (require 'fixpath)))
+
+(add-hook 'plsql-mode-hook
+          '(lambda ()
+             (guess-style-guess-all)
+             (global-guess-style-info-mode 1)
+             (setq
+              c-basic-offset 2
+              tab-width 2)))
 
 (eval-after-load "slime"
   '(progn
@@ -270,6 +283,13 @@
              (message "markdown-cycle should be called")
              (markdown-cycle)))))))
 
+;;; Processing
+
+;;  (add-to-list 'load-path "/path/to/processing-emacs/")
+(autoload 'processing-mode "processing-mode" "Processing mode" t)
+(add-to-list 'auto-mode-alist '("\\.pde$" . processing-mode))
+(setq processing-location "/Applications/Processing.app")
+
 ;; MediaWiki
 (autoload 'wikipedia-mode "wikipedia-mode.el"
   "Major mode for editing documents in Wikipedia markup." t)
@@ -345,6 +365,20 @@
 
 ;; Modeline config
 (set-face-background 'mode-line "#acccfc")
+
+
+;;; Themes
+(add-to-list 'load-path (concat emacs-root-p "themes/color-theme"))
+(add-to-list 'load-path (concat emacs-root-p "themes/solarized"))
+
+(require 'color-theme)
+(require 'color-theme-solarized)
+(eval-after-load "color-theme"
+  '(progn
+     (color-theme-initialize)
+     (color-theme-hober)))
+
+;;; / Themes
 
 ;; Ido mode
 (when (> emacs-major-version 21)
