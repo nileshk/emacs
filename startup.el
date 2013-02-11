@@ -64,8 +64,9 @@
   (add-to-list 'load-path (concat script-root-p "Emacs/slime"))
   (load-if-exists (concat emacs-root-p "slime/slime-autoloads.el"))
   (setq initial-frame-alist
-      `((left . 0) (top . 0)
-        (width . 2000) (height . 2000)))
+      `((left . 1) (top . 1)
+        (width . 256) (height . 64)))
+  (if (> emacs-major-version 20) (tool-bar-mode -1))
   (when window-system 
     (require 'fixpath)
     (set-default-font
@@ -376,7 +377,8 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-hober)))
+;;     (color-theme-word-perfect)
+     (color-theme-blue-mood)))
 
 ;;; / Themes
 
