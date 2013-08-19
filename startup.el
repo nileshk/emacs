@@ -432,8 +432,10 @@
 (setenv "PAGER" "cat")
 
 ;; How long Emacs took to load
-(message "startup.el loaded in %ds" 
-         (destructuring-bind (hi lo ms) (current-time)
-           (- (+ hi lo) (+ (first *emacs-load-start*)
-                           (second *emacs-load-start*)))))
+
+;; Broken in 24.3
+;; (message "startup.el loaded in %ds" 
+;;          (destructuring-bind (hi lo ms) (current-time)
+;;            (- (+ hi lo) (+ (first *emacs-load-start*)
+;;                            (second *emacs-load-start*)))))
 ;; Should not be any code after this
