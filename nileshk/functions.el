@@ -218,3 +218,10 @@ to follow-mode"
   (while (search-forward-regexp "\>[ \\t]*\<" nil t)
     (backward-char) (insert "\n"))
   (indent-region begin end))
+
+(defun make-file-executable ()
+  "Make file for current buffer executable (works in Tramp mode too)"
+  (interactive)
+  (set-file-modes buffer-file-name 
+                  (logior (file-modes buffer-file-name) #o100))
+  (message (concat "Made " buffer-file-name " executable")))
