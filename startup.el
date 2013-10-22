@@ -30,7 +30,7 @@
 
 ;;(load-if-exists (concat emacs-root-p "nxhtml/autostart.el"))
 
-;;; Edit server for Chrome's Edit in Emacs extension
+;;Edit server for Chrome's Edit in Emacs extension
 (if (locate-library "edit-server")
     (progn
       (require 'edit-server)
@@ -84,7 +84,7 @@
    "-*-Andale Mono-normal-r-*-*-14-*-*-*-c-*-iso8859-1")
   (add-to-list 'load-path "/usr/share/common-lisp/source/slime/")
   (setq inferior-lisp-program "/usr/bin/sbcl")
-  (if (> emacs-major-version 20) (tool-bar-mode -1))
+  (if (> emacs-major-version 20) (if window-system (tool-bar-mode -1)))
   (setq initial-frame-alist
       `((left . 0) (top . 0)
         (width . 2000) (height . 2000))))
@@ -378,7 +378,7 @@
   '(progn
      (color-theme-initialize)
 ;;     (color-theme-word-perfect)
-     (color-theme-blue-mood)))
+     (if window-system (color-theme-blue-mood))))
 
 ;;; / Themes
 
