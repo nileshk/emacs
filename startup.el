@@ -17,16 +17,11 @@
 
 (add-to-list 'load-path (concat emacs-root-p "vendor"))
 (add-to-list 'load-path (concat emacs-root-p "nileshk"))
-(add-to-list 'load-path (concat emacs-root-p "slime/contrib"))
-(add-to-list 'load-path (concat emacs-root-p "haskell-mode"))
-(add-to-list 'load-path (concat emacs-root-p "scala-mode"))
 
-;;(add-to-list 'load-path (concat emacs-root-p "clojure-mode"))
 (load (concat emacs-root-p "nileshk/functions.el"))
 (load (concat emacs-root-p "nileshk/ido-filecache.el"))
 (load (concat emacs-root-p "nileshk/desktops.el"))
-(load-if-exists (concat emacs-root-p "scala-mode/scala-mode-auto.el"))
-(load-if-exists (concat emacs-root-p "vendor/php-mode.elc"))
+;;(load-if-exists (concat emacs-root-p "vendor/php-mode.elc"))
 
 ;;(load-if-exists (concat emacs-root-p "nxhtml/autostart.el"))
 
@@ -38,7 +33,7 @@
       (edit-server-start)))
 
 ;;; YASnippet
-(add-to-list 'load-path (concat emacs-root-p "vendor/yasnippet.el"))
+;;(add-to-list 'load-path (concat emacs-root-p "vendor/yasnippet.el"))
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory (concat emacs-root-p "snippets"))
@@ -60,9 +55,6 @@
 ;;;;;;;; Mac OS X config ;;;;;;;;
 (when macosx-p
   (message "Mac OS X detected")
-  (setq inferior-lisp-program "/sw/bin/sbcl")
-  (add-to-list 'load-path (concat script-root-p "Emacs/slime"))
-  (load-if-exists (concat emacs-root-p "slime/slime-autoloads.el"))
   (setq initial-frame-alist
       `((left . 1) (top . 1)
         (width . 256) (height . 64)))
@@ -82,8 +74,6 @@
   (message "Linux detected")
   (set-default-font
    "-*-Andale Mono-normal-r-*-*-14-*-*-*-c-*-iso8859-1")
-  (add-to-list 'load-path "/usr/share/common-lisp/source/slime/")
-  (setq inferior-lisp-program "/usr/bin/sbcl")
   (if (> emacs-major-version 20) (if window-system (tool-bar-mode -1)))
   (setq initial-frame-alist
       `((left . 0) (top . 0)
@@ -145,14 +135,6 @@
 (autoload 'jpl-mode "jpl-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.jpl$" . jpl-mode))
 
-;; Clojure mode
-;;(autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
-(autoload 'clojure-mode "clojure" "A major mode for Clojure" t)
-(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
-(eval-after-load "clojure"
-  '(progn
-     (highlight-parentheses-mode t)))
-
 (eval-after-load "plsql"
   '(progn
      (require 'sqlplus)
@@ -166,28 +148,10 @@
               c-basic-offset 2
               tab-width 2)))
 
-(eval-after-load "slime"
-  '(progn
-     (slime-setup '(slime-fancy
-                    slime-fancy-inspector
-                    slime-asdf
-                    slime-indentation
-                    slime-fontifying-fu))
-     (slime-autodoc-mode)
-     (setq slime-complete-symbol*-fancy t)
-     (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)))
-
 ; If GUI client, start server for gnuclient.  Ask when closing via C-x C-c
 (when window-system 
   (server-start)
   (global-set-key (kbd "C-x C-c") 'ask-before-closing))
-
-;; Haskell
-(autoload 'haskell-mode "haskell-mode" "Haskell Mode" t)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 
 ;; Conditionally load other stuff (host specific)
 (let ((host-specific-files (concat "~/.emacs.d/" system-name ".el")))
@@ -246,12 +210,6 @@
              (flymake-mode t)
              ))
 
-;;; Scala
-(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
-(add-hook 'scala-mode-hook
-          '(lambda ()
-             (yas/minor-mode-on)))
-
 ;;; XML
 (add-to-list 'auto-mode-alist
              '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\|xsd\\|svg\\|rss\\|jsp\\)\\'" . 
@@ -304,20 +262,11 @@
    '(lambda ()
       (longlines-mode -1)))
 
-; TODO lazy load this
-;; (pymacs-load "ropemacs" "rope-")
-;; (setq ropemacs-enable-autoimport t)
-;;  '(add-to-list 'pymacs-load-path YOUR-PYMACS-DIRECTORY"))
-
-
-;; (require 'auto-complete)
-;; (load "~/Emacs/scripts/auto-complete-python.el")
-
 ;; Twitter
-(autoload 'twitter-get-friends-timeline "twitter" nil t)
-(autoload 'twitter-status-edit "twitter" nil t)
-(global-set-key "\C-xt" 'twitter-get-friends-timeline)
-(add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
+;; (autoload 'twitter-get-friends-timeline "twitter" nil t)
+;; (autoload 'twitter-status-edit "twitter" nil t)
+;; (global-set-key "\C-xt" 'twitter-get-friends-timeline)
+;; (add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
 
 ;; Turn off the default backup behaviour
 ;; Instead, save backups to ~/.emacs.d/backup (creating folder if necessary)
@@ -369,11 +318,11 @@
 
 
 ;;; Themes
-(add-to-list 'load-path (concat emacs-root-p "themes/color-theme"))
-(add-to-list 'load-path (concat emacs-root-p "themes/solarized"))
+;;(add-to-list 'load-path (concat emacs-root-p "themes/color-theme"))
+;;(add-to-list 'load-path (concat emacs-root-p "themes/solarized"))
 
 (require 'color-theme)
-(require 'color-theme-solarized)
+;;(require 'color-theme-solarized)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)

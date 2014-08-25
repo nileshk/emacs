@@ -1,4 +1,4 @@
-(add-to-list 'load-path (expand-file-name "~/Emacs/company"))
+;; (add-to-list 'load-path (expand-file-name "~/Emacs/company"))
 (autoload 'company-mode "company" nil t)
 
 (add-to-list 'load-path (expand-file-name "~/Apps/emacs-eclim/"))
