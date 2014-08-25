@@ -1,8 +1,4 @@
 #!/bin/bash
 
-# Haskell Mode
-if [ -d haskell-mode ]; then
-    echo "Removing haskell-mode so it gets reloaded"
-    rm -rf haskell-mode
-fi    
+# Initial Emacs setup goes here
 ./update
