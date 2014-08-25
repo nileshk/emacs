@@ -23,6 +23,17 @@ Organization
 Setup
 -----
 
+Create an ~/.emacs file and add the following to it (with the correct paths):
+
+    (load "/Users/username/Emacs/startup-packages.el")
+    (load "/Users/username/Emacs/startup.el")
+
+* Emacs configuration will not work the first time and will result in
+errors because packages need to be installed via package-install.
+* Execute `M-x update-packages` to install list of specified packages
+using package-install.
+* Restart Emacs and it should load properly.
+
 * `init` - bash script for initializing dependencies (fetching files
   needed)
 * `update` - bash script for updating dependencies (fetching files
