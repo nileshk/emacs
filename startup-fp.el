@@ -7,12 +7,12 @@
 ;; (add-to-list 'load-path (concat emacs-root-p "clojure-mode"))
 
 ;; TODO Load Slime via package.el
-(add-to-list 'load-path (concat emacs-root-p "slime/contrib"))
+;;(add-to-list 'load-path (concat emacs-root-p "slime/contrib"))
 
 (when macosx-p
   (message "Mac OS X detected")
   (setq inferior-lisp-program "/sw/bin/sbcl")
-  (add-to-list 'load-path (concat script-root-p "Emacs/slime"))
+  ;;(add-to-list 'load-path (concat script-root-p "Emacs/slime"))
   (load-if-exists (concat emacs-root-p "slime/slime-autoloads.el"))
 
 ;;;;;;;; Linux config ;;;;;;;;

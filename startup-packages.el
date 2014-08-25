@@ -11,10 +11,12 @@
   (setq my-packages
         '(ack-and-a-half actionscript-mode
                          csharp-mode
+                         clojure-mode
                          color-theme
                          company
                          geben
                          groovy-mode
+                         haskell-mode
                          highlight-parentheses
                          ipython
                          js2-mode
@@ -25,6 +27,7 @@
                          projectile
                          python
                          scala-mode
+                         slime
                          solarized-theme
                          sqlplus
                          yaml-mode
