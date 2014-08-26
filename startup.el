@@ -101,10 +101,6 @@
 (when (not window-system)
   (menu-bar-mode 0))
 
-;; Load csharp-mode for C#
-(autoload 'csharp-mode "csharp-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
-
 ;; Load js2-mode for Javascript
 ;; (autoload 'js2-mode "js2" nil t)
 ;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
