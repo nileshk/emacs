@@ -312,6 +312,8 @@
 ;; Modeline config
 (set-face-background 'mode-line "#acccfc")
 
+;; Adaptive wrap
+(setq adaptive-wrap-extra-indent 4)
 
 ;;; Themes
 ;;(add-to-list 'load-path (concat emacs-root-p "themes/color-theme"))

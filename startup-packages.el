@@ -10,6 +10,7 @@
 (defun my-packages-installed-p ()
   (setq my-packages
         '(ack-and-a-half actionscript-mode
+                         adaptive-wrap
                          csharp-mode
                          clojure-mode
                          color-theme
@@ -26,6 +27,7 @@
                          plsql
                          projectile
                          python
+                         rainbow-delimiters
                          scala-mode
                          slime
                          solarized-theme
