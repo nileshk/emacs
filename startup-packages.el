@@ -32,6 +32,7 @@
                          slime
                          solarized-theme
                          sqlplus
+                         web-mode
                          yaml-mode
                          yasnippet))
   (loop for p in my-packages
