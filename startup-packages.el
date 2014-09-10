@@ -28,6 +28,7 @@
                          projectile
                          python
                          rainbow-delimiters
+                         rainbow-mode
                          scala-mode
                          slime
                          solarized-theme

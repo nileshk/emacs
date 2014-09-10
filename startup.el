@@ -124,6 +124,11 @@
         ad-do-it)
     ad-do-it))
 
+;; CSS
+(add-hook 'css-mode-hook 'my-css-mode-hook)
+(defun my-css-mode-hook ()
+  (rainbow-mode 1))
+
 ;; PHP
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 (add-hook 'php-mode-hook
