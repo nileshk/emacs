@@ -287,6 +287,7 @@
   (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))))
 
 ;;; General settings
+(global-auto-revert-mode t)
 (setq default-tab-width 4)
 (setq standard-indent 4)
 (setq-default indent-tabs-mode nil)
