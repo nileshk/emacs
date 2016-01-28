@@ -292,7 +292,15 @@
 (setq standard-indent 4)
 (setq-default indent-tabs-mode nil)
 (setq inhibit-splash-screen t)
-(setq visible-bell 'top-bottom)
+
+(defun my-terminal-visible-bell ()
+  "A friendlier visual bell effect."
+  (invert-face 'mode-line)
+  (run-with-timer 0.1 nil 'invert-face 'mode-line))
+ 
+(setq visible-bell nil
+      ring-bell-function #'my-terminal-visible-bell)
+
 (transient-mark-mode t)
 (setq delete-by-moving-to-trash t)
 (column-number-mode t)
