@@ -15,6 +15,7 @@
                          clojure-mode
                          color-theme
                          company
+                         elixir-mode
                          geben
                          groovy-mode
                          haskell-mode
@@ -22,6 +23,7 @@
                          ipython
                          js2-mode
                          markdown-mode
+                         magit
                          omnisharp
                          php-mode
                          plsql
@@ -29,6 +31,7 @@
                          python
                          rainbow-delimiters
                          rainbow-mode
+                         restclient
                          scala-mode
                          slime
                          solarized-theme
