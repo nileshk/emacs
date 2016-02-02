@@ -389,6 +389,10 @@
 ;(global-set-key (kbd "<C-tab>") 'bury-buffer)
 (global-set-key (kbd "s-R") 'file-cache-ido-find-file)
 
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
 ;;; Upcase / downcase commands enabled
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
