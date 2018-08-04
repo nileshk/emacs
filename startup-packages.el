@@ -9,33 +9,40 @@
 
 (defun my-packages-installed-p ()
   (setq my-packages
-        '(ack-and-a-half actionscript-mode
-                         adaptive-wrap
-                         csharp-mode
-                         clojure-mode
+        '(ack-and-a-half adaptive-wrap
+;                         csharp-mode
+;                         clojure-mode
                          color-theme
                          company
-                         elixir-mode
+                         counsel
+;                         elixir-mode
+			 flymake
                          geben
-                         groovy-mode
-                         haskell-mode
+;                         groovy-mode
+;                         haskell-mode
                          highlight-parentheses
-                         ipython
-                         js2-mode
+;                         ipython
+                         ivy
+;                         js2-mode
                          markdown-mode
                          magit
-                         omnisharp
+;                         omnisharp
                          php-mode
-                         plsql
+;                         plsql
                          projectile
                          python
                          rainbow-delimiters
                          rainbow-mode
                          restclient
-                         scala-mode
+;                         scala-mode
                          slime
                          solarized-theme
-                         sqlplus
+;                         sqlplus
+                         swiper
+                         tabbar
+                         tide
+                         typescript
+			 use-package
                          web-mode
                          yaml-mode
                          yasnippet))
@@ -52,7 +59,8 @@
     ;; install the missing packages
     (dolist (p my-packages)
       (when (not (package-installed-p p))
-        (package-install p)))))
+        (package-install p)))
+    (message "Done updating/installing packages")))
 
 ;;;; el-get configuration
 
